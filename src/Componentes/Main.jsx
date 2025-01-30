@@ -1,7 +1,6 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './Main.css';
 import Mensagens from './Mensagens';
-
 
 export default function Main() {
 
@@ -20,6 +19,7 @@ export default function Main() {
             method: 'POST',
             headers: {
                 'Content-type': 'application/json',
+                'ngrok-skip-browser-warning': 'true',
             },
 
             body: JSON.stringify(Dados)
@@ -37,13 +37,10 @@ export default function Main() {
 
     }
 
-
-
     return (
         <div>
-               <Mensagens/>
+            <Mensagens/>
             <main className="Main">
-             
                 <div className='Buttons'>
                     <div className='BotoesMensagens'>
                         <input type='text'
@@ -61,10 +58,7 @@ export default function Main() {
                         </div>
                     </div>
                 </div>
-
             </main>
         </div>
     )
 }
-
-

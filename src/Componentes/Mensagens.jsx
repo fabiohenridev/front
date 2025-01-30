@@ -13,13 +13,14 @@ export default function Mensagens() {
     };
 
     socket.onmessage = (event) => {
-      const mensagemRecebida = event.data;
+        const mensagemRecebida = event.data;
+        console.log('Mensagem recebida:', mensagemRecebida);  // Verifique se as mensagens estão chegando
+        if (mensagemRecebida !== 'Novos dados foram inseridos no banco') {
+          const novaMensagem = JSON.parse(mensagemRecebida);
+          setDados((prevDados) => [...prevDados, novaMensagem]);
+        }
+      };
       
-      if (mensagemRecebida !== 'Novos dados foram inseridos no banco') {
-        const novaMensagem = JSON.parse(mensagemRecebida);
-        setDados((prevDados) => [...prevDados, novaMensagem]);
-      }
-    };
 
     socket.onclose = () => {
       console.log('Desconectado do servidor WebSocket');
