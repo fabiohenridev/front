@@ -15,7 +15,7 @@ export default function Main() {
 
         const Dados = { nome, texto }
 
-        fetch('http://localhost:3000/Dados', {
+        fetch('https://7761-186-236-211-59.ngrok-free.app/Dados', {
 
             method: 'POST',
             headers: {
@@ -27,7 +27,8 @@ export default function Main() {
         })
           
              .then(()=>{
-                alert("mensagem enviada")
+               console.log("Mensagem enviada")
+               setTexto('');
              })
 
             .catch((erro) => {
@@ -46,7 +47,7 @@ export default function Main() {
                 <div className='Buttons'>
                     <div className='BotoesMensagens'>
                         <input type='text'
-                            placeholder='Nome'
+                            placeholder='Nome obrigatório'
                             value={nome}
                             onChange={(e) => setNome(e.target.value)}
                         ></input>

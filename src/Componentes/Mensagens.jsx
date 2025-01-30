@@ -1,42 +1,64 @@
 import './Mensagens.css';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 export default function Mensagens() {
+  const [dados, setDados] = useState([]);
+  const scrollRef = useRef();
 
+  useEffect(() => {
+    const socket = new WebSocket('ws://localhost:3000');
 
-    const [dados, setDados] = useState([]);
+    socket.onopen = () => {
+      console.log('Conectado ao servidor WebSocket');
+    };
 
-    useEffect(() => {
+    socket.onmessage = (event) => {
+      const mensagemRecebida = event.data;
+      
+      if (mensagemRecebida !== 'Novos dados foram inseridos no banco') {
+        const novaMensagem = JSON.parse(mensagemRecebida);
+        setDados((prevDados) => [...prevDados, novaMensagem]);
+      }
+    };
 
+    socket.onclose = () => {
+      console.log('Desconectado do servidor WebSocket');
+    };
 
-        fetch('http://localhost:3000/')
+    return () => {
+      socket.close();
+    };
+  }, []);
 
-            .then((resposta) => resposta.json())
+  useEffect(() => {
+    fetch('https://7761-186-236-211-59.ngrok-free.app/')
+      .then((resposta) => resposta.json())
+      .then((Dados) => {
+        setDados(Dados);
+      })
+      .catch((err) => {
+        console.log('Erro ao fazer requisição', err);
+      });
+  }, []);
 
-            .then((Dados) => {
-                setDados(Dados)
-            })
+  useEffect(() => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  }, [dados]);
 
-
-            .catch((err) => {
-                if (err) {
-                    console.log("erro ao fazer requisição", err)
-                }
-            })
-
-    }, [])
-
-
-
-    return (
-        <div>
-            <div className='Mensagens'>
-                <div className='BoxMensagens'>
-                    {dados.map((Item) => (
-                        <li className='Lista' key={Item.id}><span className='Nome'>{Item.nome}:</span> {Item.texto}</li>
-                    ))}
-                </div>
-            </div>
+  return (
+    <div>
+      <div className='Mensagens'>
+        <div className='BoxMensagens'>
+          {dados.map((Item) => (
+            <li className='Lista' key={Item.id}>
+              <span className='Nome'>{Item.nome}:</span> {Item.texto}
+            </li>
+          ))}
+          <div ref={scrollRef}></div>
         </div>
-    )
+      </div>
+    </div>
+  );
 }
