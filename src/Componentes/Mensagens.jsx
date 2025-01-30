@@ -31,7 +31,11 @@ export default function Mensagens() {
   }, []);
 
   useEffect(() => {
-    fetch('https://7761-186-236-211-59.ngrok-free.app/')
+    fetch('https://7761-186-236-211-59.ngrok-free.app/', {
+      headers: {
+        'ngrok-skip-browser-warning': 'true',
+      },
+    })
       .then((resposta) => resposta.json())
       .then((Dados) => {
         setDados(Dados);
