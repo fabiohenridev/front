@@ -1,11 +1,10 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import './Main.css';
 import Mensagens from './Mensagens';
 
 export default function Main() {
     const [nome, setNome] = useState('');
     const [texto, setTexto] = useState('');
-    const [mensagem, setMensagem] = useState('');
 
     const EnviarDados = (e) => {
         e.preventDefault();
@@ -16,8 +15,8 @@ export default function Main() {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'ngrok-skip-browser-warning': 'true',
-                'User-Agent': 'CustomUserAgent', // Adiciona o cabeçalho de User-Agent customizado
+                'ngrok-skip-browser-warning': 'true', // Tentativa de remover o aviso
+                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36', // User-Agent padrão
             },
             body: JSON.stringify(Dados),
         })
