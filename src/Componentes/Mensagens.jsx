@@ -6,7 +6,8 @@ export default function Mensagens() {
   const scrollRef = useRef();
 
   useEffect(() => {
-    const socket = new WebSocket('ws://localhost:3000');
+    // Conectar ao WebSocket usando a URL do ngrok (wss://)
+    const socket = new WebSocket('wss://7761-186-236-211-59.ngrok-free.app');
 
     socket.onopen = () => {
       console.log('Conectado ao servidor WebSocket');
@@ -14,7 +15,7 @@ export default function Mensagens() {
 
     socket.onmessage = (event) => {
       const mensagemRecebida = event.data;
-      console.log('Mensagem recebida:', mensagemRecebida);
+      console.log('Mensagem recebida:', mensagemRecebida); // Verifique se as mensagens estão chegando
       if (mensagemRecebida !== 'Novos dados foram inseridos no banco') {
         const novaMensagem = JSON.parse(mensagemRecebida);
         setDados((prevDados) => [...prevDados, novaMensagem]);
