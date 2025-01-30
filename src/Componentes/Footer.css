@@ -2,11 +2,18 @@ footer{
     height: 100px;
     background-color:#181818;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 
 h4{
-    color: white;
+    color: rgb(195, 195, 195);
+    font-size: 10px;
+}
+
+h5{
+    color:  rgb(195, 195, 195);
+    font-size: 8px;
 }
 

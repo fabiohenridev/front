@@ -1,12 +1,13 @@
 import './Footer.css';
-import Main from './Main';
+
 
 
 export default function Footer(){
     return(
         <div>
             <footer>
-                <h4>Footer</h4>
+                <h4>Todos os direitos reservados</h4>
+                <h5>FEITO POR FABIO HENRIQUE</h5>
             </footer>
         </div>
     )
