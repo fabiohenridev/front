@@ -1,5 +1,5 @@
 .Main{
-    height: 120px;
+    height: 250px;
     background: rgb(24, 24, 24);
     display: flex;
     justify-content: center;
@@ -8,6 +8,7 @@
 
 .BotoesMensagens{
     display: flex;
+    position: relative;
     flex-direction: column;
 }
 
