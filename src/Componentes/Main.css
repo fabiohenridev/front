@@ -1,0 +1,54 @@
+.Main{
+    height: 400px;
+    background: rgb(24, 24, 24);
+    border: 1px solid white;
+    display: flex;
+    justify-content: center;
+    align-items:end;
+   
+}
+
+.BotoesMensagens{
+    display: flex;
+    flex-direction: column;
+}
+
+.Buttons{
+ 
+    width: 100%;
+    margin: 30px;
+    justify-content: center;
+    align-items: center;
+}
+
+input{
+    height: 40px;
+    background: none;
+    border-radius: 5px;
+    border: 1px solid gray;
+    color: white;
+    margin: 2px;
+}
+
+input:focus{
+    outline: 1px solid white;
+}
+
+.Enviar{
+    display: flex;
+}
+
+.Enviar input{
+    width: 100%;
+}
+
+.Enviar button{
+    background: none;
+    border: none;
+}
+
+.BotaoEnviar{
+    color: rgb(0, 255, 4);
+    font-size: 20px;
+}
+
