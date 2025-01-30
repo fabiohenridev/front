@@ -13,14 +13,13 @@ export default function Mensagens() {
     };
 
     socket.onmessage = (event) => {
-        const mensagemRecebida = event.data;
-        console.log('Mensagem recebida:', mensagemRecebida);  // Verifique se as mensagens estão chegando
-        if (mensagemRecebida !== 'Novos dados foram inseridos no banco') {
-          const novaMensagem = JSON.parse(mensagemRecebida);
-          setDados((prevDados) => [...prevDados, novaMensagem]);
-        }
-      };
-      
+      const mensagemRecebida = event.data;
+      console.log('Mensagem recebida:', mensagemRecebida);
+      if (mensagemRecebida !== 'Novos dados foram inseridos no banco') {
+        const novaMensagem = JSON.parse(mensagemRecebida);
+        setDados((prevDados) => [...prevDados, novaMensagem]);
+      }
+    };
 
     socket.onclose = () => {
       console.log('Desconectado do servidor WebSocket');
@@ -33,8 +32,10 @@ export default function Mensagens() {
 
   useEffect(() => {
     fetch('https://7761-186-236-211-59.ngrok-free.app/', {
+      method: 'GET',
       headers: {
         'ngrok-skip-browser-warning': 'true',
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36',
       },
     })
       .then((resposta) => resposta.json())
