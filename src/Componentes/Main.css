@@ -1,11 +1,9 @@
 .Main{
-    height: 400px;
+    height: 200px;
     background: rgb(24, 24, 24);
-    border: 1px solid white;
     display: flex;
     justify-content: center;
     align-items:end;
-   
 }
 
 .BotoesMensagens{
@@ -16,7 +14,7 @@
 .Buttons{
  
     width: 100%;
-    margin: 30px;
+    margin: 20px;
     justify-content: center;
     align-items: center;
 }
@@ -48,7 +46,7 @@ input:focus{
 }
 
 .BotaoEnviar{
-    color: rgb(0, 255, 4);
+    color:#ffffff;
     font-size: 20px;
 }
 

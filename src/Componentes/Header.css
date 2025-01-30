@@ -2,10 +2,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 200px;
+    height: 100px;
     width: 100%;
     margin: 0%;
-    background-color: black;
+    background-color: rgba(43, 0, 217, 0.792);
 }
 
 .header h1{
@@ -13,8 +13,4 @@
  font-size: 20px;
 }
 
-.nome{
-    color: white;
-    list-style-type: none;
-}
 

@@ -7,7 +7,6 @@ export default function Footer(){
         <div>
             <footer>
                 <h4>Footer</h4>
-               
             </footer>
         </div>
     )

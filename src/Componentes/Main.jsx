@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import './Main.css';
+import Mensagens from './Mensagens';
 
 
 export default function Main() {
@@ -24,9 +25,11 @@ export default function Main() {
             body: JSON.stringify(Dados)
 
         })
+          
+             .then(()=>{
+                alert("mensagem enviada")
+             })
 
-            .then((resposta) => resposta.text())
-            .then((mensagem) => setMensagem(mensagem))
             .catch((erro) => {
                 console.log("erro ao enviar dados", erro)
             })
@@ -37,7 +40,9 @@ export default function Main() {
 
     return (
         <div>
+               <Mensagens/>
             <main className="Main">
+             
                 <div className='Buttons'>
                     <div className='BotoesMensagens'>
                         <input type='text'
@@ -51,7 +56,7 @@ export default function Main() {
                                 placeholder='Mensagem'
                                 onChange={(e) => setTexto(e.target.value)}
                             ></input>
-                            <button><i class="bi bi-send-fill BotaoEnviar"></i></button>
+                            <button onClick={EnviarDados}><i class="bi bi-send-fill BotaoEnviar"></i></button>
                         </div>
                     </div>
                 </div>
