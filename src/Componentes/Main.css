@@ -12,6 +12,22 @@
     flex-direction: column;
 }
 
+input[type="File"]{
+    display: none;
+}
+
+.photo{
+    color: white;
+    font-size: 20px;
+}
+
+.Photosss{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .Buttons{
  
     width: 100%;
