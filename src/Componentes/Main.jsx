@@ -11,7 +11,7 @@ export default function Main() {
 
         const Dados = { nome, texto };
 
-        fetch('https://7761-186-236-211-59.ngrok-free.app/Dados', {
+        fetch('https://3767-187-19-242-1.ngrok-free.app/Dados', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
