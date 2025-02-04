@@ -20,7 +20,7 @@ export default function Main() {
       
 
         // Envia a mensagem para o backend
-        fetch('https://3767-187-19-242-1.ngrok-free.app/Dados', {
+        fetch('https://4300-187-19-242-1.ngrok-free.app/Dados', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
