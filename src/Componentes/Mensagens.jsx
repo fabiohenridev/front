@@ -7,7 +7,7 @@ export default function Mensagens() {
 
   useEffect(() => {
     // Conectar ao WebSocket usando a URL do ngrok (wss://)
-    const socket = new WebSocket('wss://4300-187-19-242-1.ngrok-free.app');
+    const socket = new WebSocket('wss://6410-187-19-242-1.ngrok-free.app');
 
     socket.onopen = () => {
       console.log('Conectado ao servidor WebSocket');
@@ -32,7 +32,7 @@ export default function Mensagens() {
   }, []);
 
   useEffect(() => {
-    fetch('https://4300-187-19-242-1.ngrok-free.app/', {
+    fetch('https://6410-187-19-242-1.ngrok-free.app/', {
       method: 'GET',
       headers: {
         'ngrok-skip-browser-warning': 'true',
