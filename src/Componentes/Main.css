@@ -1,9 +1,11 @@
 .Main{
-    height: 250px;
+   
     background: rgb(24, 24, 24);
     display: flex;
     justify-content: center;
     align-items:end;
+    height: 15vh;
+    
 }
 
 .BotoesMensagens{
@@ -67,3 +69,26 @@ input:focus{
     font-size: 20px;
 }
 
+@media(max-height: 896px){
+
+    .Main{
+        position: relative;
+        
+     
+    }
+    
+    }
+
+    
+
+    
+    @media(max-height: 668px){
+
+        .Main{
+            position: relative;
+           
+            
+        }
+        
+        }
+    
