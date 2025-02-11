@@ -8,5 +8,6 @@
 html, body{
     background-color:#181818;
     height: 100vh;
+    max-width: 500px;
 }
 
